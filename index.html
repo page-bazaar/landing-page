@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manushi | Luxury Creator</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f0712;
+    color:white;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#ff4fd84f,transparent 70%);
+    top:-200px;
+    left:-200px;
+    z-index:-2;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,#ff99f24a,transparent 70%);
+    bottom:-200px;
+    right:-150px;
+    z-index:-2;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    padding:25px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.03);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:700;
+    font-family:'Playfair Display',serif;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#ff69d9;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:0.95rem;
+    transition:0.4s;
+}
+
+.nav-links a:hover{
+    color:#ff69d9;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    padding:120px 8%;
+    gap:50px;
+}
+
+.hero-content h4{
+    color:#ff8be7;
+    font-size:1rem;
+    letter-spacing:3px;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+.hero-content h1{
+    font-size:6rem;
+    line-height:1;
+    font-family:'Playfair Display',serif;
+    margin-bottom:25px;
+}
+
+.hero-content h1 span{
+    color:#ff69d9;
+}
+
+.hero-content p{
+    color:#d8d8d8;
+    font-size:1.1rem;
+    line-height:1.8;
+    max-width:550px;
+    margin-bottom:40px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    margin-bottom:50px;
+}
+
+.btn{
+    padding:16px 32px;
+    border-radius:50px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.4s;
+    text-decoration:none;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#ff3cac,#784ba0,#2b86c5);
+    color:white;
+    box-shadow:0 15px 35px rgba(255,105,217,0.4);
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(10px);
+    color:white;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+/* STATS */
+
+.stats{
+    display:flex;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+.stat-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:20px 30px;
+    border-radius:24px;
+    backdrop-filter:blur(15px);
+    transition:0.4s;
+}
+
+.stat-card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.08);
+}
+
+.stat-card h2{
+    color:#ff89e5;
+    font-size:2rem;
+}
+
+.hero-image{
+    position:relative;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:40px;
+    object-fit:cover;
+    height:780px;
+    box-shadow:0 40px 80px rgba(0,0,0,0.6);
+}
+
+.hero-image::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:40px;
+    background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);
+}
+
+/* SECTION */
+
+section{
+    padding:120px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:4rem;
+    font-family:'Playfair Display',serif;
+}
+
+.section-title p{
+    margin-top:15px;
+    color:#cfcfcf;
+}
+
+/* SOCIAL PROOF */
+
+.proof-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.proof-card{
+    padding:40px;
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    transition:0.5s;
+    text-align:center;
+}
+
+.proof-card:hover{
+    transform:translateY(-15px) rotate(-1deg);
+}
+
+.proof-card i{
+    font-size:2rem;
+    color:#ff73db;
+    margin-bottom:20px;
+}
+
+/* SHOWCASE */
+
+.showcase-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.showcase-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:35px;
+    height:450px;
+}
+
+.showcase-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.7s;
+}
+
+.showcase-card:hover img{
+    transform:scale(1.1);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:30px;
+}
+
+.overlay h3{
+    font-size:1.7rem;
+    margin-bottom:10px;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:35px;
+    height:650px;
+    object-fit:cover;
+}
+
+.about-content h2{
+    font-size:4rem;
+    margin-bottom:25px;
+    font-family:'Playfair Display',serif;
+}
+
+.about-content p{
+    color:#d5d5d5;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+/* BRANDS */
+
+.brands{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.brand-card{
+    padding:25px 45px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:1.4rem;
+    transition:0.4s;
+}
+
+.brand-card:hover{
+    background:#ff69d9;
+    transform:translateY(-8px);
+}
+
+/* TESTIMONIALS */
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.testimonial{
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.4s;
+}
+
+.testimonial:hover{
+    transform:translateY(-10px);
+}
+
+.testimonial p{
+    line-height:1.8;
+    color:#ddd;
+}
+
+.user{
+    margin-top:25px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.user img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    background:linear-gradient(135deg,#ff3cac1f,#784ba026,#2b86c522);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:40px;
+    margin:0 8% 100px;
+    padding:80px 40px;
+    backdrop-filter:blur(15px);
+}
+
+.cta h2{
+    font-size:4rem;
+    margin-bottom:20px;
+    font-family:'Playfair Display',serif;
+}
+
+.cta p{
+    max-width:700px;
+    margin:auto;
+    color:#d7d7d7;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.social-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px 8%;
+    border-top:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.footer-icons{
+    display:flex;
+    gap:20px;
+}
+
+.footer-icons a{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,0.05);
+    color:white;
+    text-decoration:none;
+    transition:0.4s;
+}
+
+.footer-icons a:hover{
+    background:#ff69d9;
+    transform:translateY(-5px);
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:4rem;
+    }
+
+    .section-title h2,
+    .about-content h2,
+    .cta h2{
+        font-size:3rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    nav{
+        padding:20px 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding:130px 5%;
+    }
+
+    section{
+        padding:90px 5%;
+    }
+
+    .hero-content h1{
+        font-size:3rem;
+    }
+
+    .stats{
+        flex-direction:column;
+    }
+
+    .hero-image img{
+        height:550px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">MANU<span>SHI</span></div>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#showcase">Reels</a>
+        <a href="#brands">Brands</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content reveal">
+
+        <h4>@chilar</h4>
+
+        <h1>
+            Fashion <span>Symmetry</span>
+        </h1>
+
+        <p>
+            Cinematic luxury creator blending editorial beauty,
+            high-fashion aesthetics, and Gen-Z elegance into
+            viral visual storytelling.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">
+                View Portfolio
+            </a>
+
+            <a href="#" class="btn btn-secondary">
+                Collaborate
+            </a>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h2>4M+</h2>
+                <p>Followers</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>300K</h2>
+                <p>Avg Reel Views</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>93%</h2>
+                <p>Engagement</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image reveal">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1400&auto=format&fit=crop" alt="">
+    </div>
+
+</section>
+
+<!-- SOCIAL PROOF -->
+
+<section>
+
+    <div class="section-title reveal">
+        <h2>Social Presence</h2>
+        <p>Luxury influence with cinematic engagement.</p>
+    </div>
+
+    <div class="proof-grid">
+
+        <div class="proof-card reveal">
+            <i class="fab fa-instagram"></i>
+            <h2>4M+</h2>
+            <p>Instagram Audience</p>
+        </div>
+
+        <div class="proof-card reveal">
+            <i class="fas fa-video"></i>
+            <h2>120M+</h2>
+            <p>Total Reel Views</p>
+        </div>
+
+        <div class="proof-card reveal">
+            <i class="fas fa-heart"></i>
+            <h2>93%</h2>
+            <p>Audience Engagement</p>
+        </div>
+
+        <div class="proof-card reveal">
+            <i class="fas fa-star"></i>
+            <h2>25+</h2>
+            <p>Luxury Brand Deals</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SHOWCASE -->
+
+<section id="showcase">
+
+    <div class="section-title reveal">
+        <h2>Content Universe</h2>
+        <p>Editorial aesthetics with cinematic storytelling.</p>
+    </div>
+
+    <div class="showcase-grid">
+
+        <div class="showcase-card reveal">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop">
+            <div class="overlay">
+                <h3>Fashion Shoots</h3>
+                <p>Luxury runway visuals</p>
+            </div>
+        </div>
+
+        <div class="showcase-card reveal">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+            <div class="overlay">
+                <h3>Beauty Reels</h3>
+                <p>Soft glam aesthetics</p>
+            </div>
+        </div>
+
+        <div class="showcase-card reveal">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+            <div class="overlay">
+                <h3>Lifestyle Stories</h3>
+                <p>Elegant Gen-Z luxury</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about">
+
+        <img class="reveal" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="about-content reveal">
+
+            <h2>The Creator Story</h2>
+
+            <p>
+                Manushi creates luxury visual experiences inspired by
+                fashion week aesthetics, cinematic storytelling,
+                and modern feminine energy.
+            </p>
+
+            <p>
+                Every reel feels like an editorial magazine cover —
+                blending bold symmetry, elegant styling, and premium
+                storytelling that resonates with millions globally.
+            </p>
+
+            <a href="#" class="btn btn-primary">
+                Explore More
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BRANDS -->
+
+<section id="brands">
+
+    <div class="section-title reveal">
+        <h2>Luxury Collaborations</h2>
+        <p>Trusted by global premium brands.</p>
+    </div>
+
+    <div class="brands">
+
+        <div class="brand-card reveal">Nike</div>
+        <div class="brand-card reveal">Adidas</div>
+        <div class="brand-card reveal">LV</div>
+        <div class="brand-card reveal">Gucci</div>
+        <div class="brand-card reveal">Versace</div>
+        <div class="brand-card reveal">Victoria Secret</div>
+        <div class="brand-card reveal">Lakme</div>
+        <div class="brand-card reveal">Treeshmee</div>
+
+    </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section>
+
+    <div class="section-title reveal">
+        <h2>What Brands Say</h2>
+        <p>Premium experiences with luxury collaborations.</p>
+    </div>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial reveal">
+
+            <p>
+                “Working with Manushi elevated our campaign into a cinematic masterpiece.
+                Her audience engagement is unreal.”
+            </p>
+
+            <div class="user">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg">
+                <div>
+                    <h4>Emily Carter</h4>
+                    <span>Creative Director</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="testimonial reveal">
+
+            <p>
+                “One of the strongest luxury creator aesthetics we’ve worked with.
+                Elegant, modern, and incredibly impactful.”
+            </p>
+
+            <div class="user">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg">
+                <div>
+                    <h4>Daniel Ross</h4>
+                    <span>Fashion Strategist</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="testimonial reveal">
+
+            <p>
+                “Her reels feel like Netflix fashion documentaries.
+                Stunning visuals with powerful brand storytelling.”
+            </p>
+
+            <div class="user">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg">
+                <div>
+                    <h4>Sophia Miller</h4>
+                    <span>Luxury Campaign Manager</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<div class="cta reveal" id="contact">
+
+    <h2>Let's Create Magic</h2>
+
+    <p>
+        Partner with Manushi for cinematic luxury campaigns,
+        editorial fashion visuals, and viral Gen-Z storytelling.
+    </p>
+
+    <div class="social-buttons">
+
+        <a href="mailto:blahblahblah@gmail.com" class="btn btn-primary">
+            Email Now
+        </a>
+
+        <a href="https://www.instagram.com" class="btn btn-secondary">
+            Instagram
+        </a>
+
+        <a href="https://www.youtube.com" class="btn btn-secondary">
+            YouTube
+        </a>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Manushi. All Rights Reserved.</p>
+
+    <div class="footer-icons">
+
+        <a href="#"><i class="fab fa-instagram"></i></a>
+
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+
+        <a href="#"><i class="fab fa-youtube"></i></a>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* REVEAL ANIMATION */
+
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+
+    reveals.forEach(reveal => {
+
+        const windowHeight = window.innerHeight;
+        const revealTop = reveal.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if(revealTop < windowHeight - revealPoint){
+            reveal.classList.add('active');
+        }
+
+    });
+
+});
+
+/* FLOATING EFFECT */
+
+const cards = document.querySelectorAll('.stat-card,.proof-card,.brand-card');
+
+cards.forEach(card=>{
+
+    card.addEventListener('mousemove',(e)=>{
+
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.transform = `
+            rotateX(${-(y - rect.height/2)/20}deg)
+            rotateY(${(x - rect.width/2)/20}deg)
+            translateY(-8px)
+        `;
+
+    });
+
+    card.addEventListener('mouseleave',()=>{
+
+        card.style.transform = `
+            rotateX(0deg)
+            rotateY(0deg)
+            translateY(0px)
+        `;
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
